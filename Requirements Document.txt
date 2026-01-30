@@ -1,0 +1,86 @@
+﻿The University would like a website for academic staff to let their students rank their project choices. Staff should be able to create a hub of students. Upon the initialisation of project allocation by a member of staff of the hub, they can set the number of students each project may have. Students may change and resubmit their choices at any time. Submissions are timestamped. Editing updates the timestamp to the current time. Allocation prioritizes earlier timestamps. When all students have submitted their choices or when the deadline has passed, submissions should be closed and the Gale-Shapley algorithm should be used to decide who gets what project, to maximise the number of students with their 1-2nd choices. There is an appeals period for students who have changed their mind, and upon the closing date, teachers can manually reassign projects.
+
+
+Instead of a student, a group can as a whole collectively agree on a project. Before project ranking is opened, students have to be assigned to groups manually or automatically. Each student can select a number of people they want to be in a group with (number set by admin) and a number of people they don’t want to be in a group with. When group assignment happens, any unassigned students/conflicts should be resolved manually by the teachers. 
+
+
+There should be a notification system for when groups are assigned, preference deadline approaches, or when projects are assigned. There should be an admin interface to manage users and override user choices/group assignments. 
+User Stories
+Group Formation
+
+
+1. As a student, I want to search for other students by name/email/ID, so that I can invite them to my group
+2. As a student, I want to list people I don’t want to be in my group so that they are not assigned to my group
+3. As an admin, I want to set a group size for automatic team assignments
+4. As an admin, I can set the number of students a students can include/exclude as their preferences
+5. As a teacher, I can view unassigned students from a dashboard and drag them into groups after the deadline
+Assignment and Management
+
+
+1. As a student/group leader, I want to drag and drop projects into a ranked list so that I can clearly indicate my preferences
+2. As an admin, I want a “Run Allocation” button that executes the matching algorithm and locks the database for finalized results
+3. As a student, I want a notification immediately when allocations are released, so I don’t have to keep refreshing the page
+
+
+
+
+Flow
+Project Assignments
+
+
+Teachers create new project assignment
+
+
+List all available projects, including cap on parties that can select it, as well as deadline of project selection
+
+
+If individual, continue, else GROUP ASSIGNMENTS
+
+
+Individual students/group leaders rank their choices and submit. Repeatable until deadline.
+
+
+Project Allocation on deadline (Gale-Shapley algorithm)
+
+
+If no issues, continue, else manually assign
+
+
+Lock choices && Notifications sent
+
+
+APPEALS
+
+
+Group Assignments
+
+
+Teachers set group allocation method (student choice, preference, manual), group size and deadline 
+
+
+Group allocation available && Students are notified that group assignments have begun
+
+
+Student choice
+Click on any group and join it, first to join is temporary group leader and has a crown
+
+
+Students may join and leave as they wish until the deadline
+At close or deadline, randomly assign remaining students to teams
+
+
+Preference
+Teachers set max number of preferred teammates and non-preferred teammates
+
+
+Students can’t select the teams they want to join but instead list preferences/non-preferences up to the limit
+
+
+Algorithm
+
+
+Manual
+Students cannot select groups or list preferences
+
+
+Teachers manually assign/drag students into groups or click a randomise button
